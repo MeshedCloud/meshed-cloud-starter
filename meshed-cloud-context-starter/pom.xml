@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>meshed-cloud-parent</artifactId>
+        <groupId>cn.meshed.cloud</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath />
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.meshed.context</groupId>
+    <artifactId>meshed-cloud-context-starter</artifactId>
+    <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.deploy.skip>true</maven.deploy.skip>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <meshed-cloud-dto.version>1.0.0-SNAPSHOT</meshed-cloud-dto.version>
+        <meshed-cloud-exception.version>1.0.0-SNAPSHOT</meshed-cloud-exception.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>cn.meshed.cloud</groupId>
+            <artifactId>meshed-cloud-dto-starter</artifactId>
+            <version>${meshed-cloud-dto.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.meshed.base</groupId>
+            <artifactId>meshed-cloud-exception</artifactId>
+            <version>${meshed-cloud-exception.version}</version>
+        </dependency>
+    </dependencies>
+
+    <!-- Source attach plugin -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${maven-source-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
