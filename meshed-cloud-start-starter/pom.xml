@@ -14,11 +14,10 @@
     <packaging>jar</packaging>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.deploy.skip>true</maven.deploy.skip>
         <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <knife4j.version>3.0.3</knife4j.version>
         <snakeyaml.version>1.32</snakeyaml.version>

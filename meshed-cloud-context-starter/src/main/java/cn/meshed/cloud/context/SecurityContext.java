@@ -1,7 +1,7 @@
 package cn.meshed.cloud.context;
 
 import cn.meshed.cloud.dto.Operator;
-import cn.meshed.exception.security.AuthenticationException;
+import cn.meshed.cloud.exception.security.AuthenticationException;
 
 /**
  * <h1>安全上下文</h1>
