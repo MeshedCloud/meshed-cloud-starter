@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.meshed.cloud.doc.config.Knife4jProperties,\
+cn.meshed.cloud.doc.config.Knife4jConfiguration
