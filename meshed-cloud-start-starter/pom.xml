@@ -23,6 +23,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <snakeyaml.version>1.32</snakeyaml.version>
         <meshed-cloud-nacos.version>1.0.0-SNAPSHOT</meshed-cloud-nacos.version>
+        <meshed-cloud-doc-starter.version>1.0.0-SNAPSHOT</meshed-cloud-doc-starter.version>
     </properties>
 
     <dependencies>
@@ -49,9 +50,20 @@
             <version>${meshed-cloud-nacos.version}</version>
         </dependency>
         <dependency>
+            <groupId>cn.meshed.cloud</groupId>
+            <artifactId>meshed-cloud-doc-starter</artifactId>
+            <version>${meshed-cloud-doc-starter.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
             <version>2.1.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.guava</groupId>
+                    <artifactId>guava</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
