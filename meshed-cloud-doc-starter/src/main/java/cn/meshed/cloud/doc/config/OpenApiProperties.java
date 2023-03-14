@@ -10,8 +10,8 @@ import org.springframework.context.annotation.Configuration;
  * @version 1.0
  */
 @Configuration
-@ConfigurationProperties(prefix = "knife4j.doc")
-public class Knife4jProperties {
+@ConfigurationProperties(prefix = "openapi.doc")
+public class OpenApiProperties {
 
     /**
      * 文档标题
@@ -25,6 +25,11 @@ public class Knife4jProperties {
      * 服务Url
      */
     private String serviceUrl;
+
+    /**
+     * 服务License
+     */
+    private String license;
     /**
      * 分组名称
      */
@@ -70,6 +75,14 @@ public class Knife4jProperties {
         this.serviceUrl = serviceUrl;
     }
 
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
+
     public String getGroupName() {
         return groupName;
     }
@@ -112,10 +125,11 @@ public class Knife4jProperties {
 
     @Override
     public String toString() {
-        return "Knife4jProperties{" +
+        return "OpenApiProperties{" +
                 "title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", serviceUrl='" + serviceUrl + '\'' +
+                ", license='" + license + '\'' +
                 ", groupName='" + groupName + '\'' +
                 ", contactName='" + contactName + '\'' +
                 ", contactUrl='" + contactUrl + '\'' +
