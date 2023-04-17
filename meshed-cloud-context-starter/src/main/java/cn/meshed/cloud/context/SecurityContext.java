@@ -3,6 +3,8 @@ package cn.meshed.cloud.context;
 import cn.meshed.cloud.dto.Operator;
 import cn.meshed.cloud.exception.security.AuthenticationException;
 
+import java.util.Optional;
+
 /**
  * <h1>安全上下文</h1>
  *
@@ -11,33 +13,49 @@ import cn.meshed.cloud.exception.security.AuthenticationException;
  */
 public class SecurityContext {
 
+    private static ThreadLocal<Operator> local = new ThreadLocal<>();
 
-    public static Operator getOperatorWithNullable(){
-        return new Operator(1000L,"sys");
+    public static void setOperator(Operator operator){
+        local.set(operator);
     }
+
+    public static void clear() {
+        local.remove();
+    }
+
     public static Operator getOperator(){
-        Operator operator = new Operator(1000L, "sys");
-        if (operator == null){
-            throw new AuthenticationException("未登入异常");
-        }
-        return operator;
+        return Optional.of(local.get())
+                .orElseThrow(() -> new AuthenticationException("未登入,无用户信息"));
+    }
+
+    public static Operator getOperatorOfNullable(){
+        return local.get();
     }
 
     public static String getOperatorString(){
         return getOperator().toString();
     }
 
-    public static Long getOperatorUserId(){
+    public static String getOperatorStringOfNullable(){
+        return local.get().toString();
+    }
+
+    public static Long getUserId(){
+        return Long.parseLong(getOperator().getId());
+    }
+
+    public static Long getUserIdOfNullable(){
+        return Optional.ofNullable(local.get())
+                .map(Operator::getId).map(Long::parseLong).orElse(null);
+    }
+
+    public static String getUserIdString(){
         return getOperator().getId();
     }
 
-    public static Long getOperatorUserIdWithNullable(){
-        Operator operator = getOperatorWithNullable();
-        return operator == null ? null : operator.getId();
+    public static String getUserIdStringOfNullable(){
+        return Optional.ofNullable(local.get())
+                .map(Operator::getId).orElse(null);
     }
 
-    public static String getOperatorString(String type){
-        Operator operator = getOperatorWithNullable();
-        return operator == null ? null : operator.toString(type);
-    }
 }
