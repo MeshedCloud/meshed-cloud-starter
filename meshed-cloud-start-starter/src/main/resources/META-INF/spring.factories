@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.meshed.cloud.advice.GlobalExceptionHandler,\
+cn.meshed.cloud.config.JacksonMapperAutoConfiguration

@@ -12,6 +12,7 @@
         <module>meshed-cloud-context-starter</module>
         <module>meshed-cloud-doc-starter</module>
         <module>meshed-cloud-start-starter</module>
+        <module>meshed-cloud-security-starter</module>
     </modules>
 
     <properties>
