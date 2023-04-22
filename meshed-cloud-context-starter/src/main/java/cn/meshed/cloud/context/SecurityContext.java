@@ -24,7 +24,7 @@ public class SecurityContext {
     }
 
     public static Operator getOperator(){
-        return Optional.of(local.get())
+        return Optional.ofNullable(local.get())
                 .orElseThrow(() -> new AuthenticationException("未登入,无用户信息"));
     }
 
