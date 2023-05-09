@@ -14,13 +14,22 @@ import java.util.Optional;
 public class SecurityContext {
 
     private static ThreadLocal<Operator> local = new ThreadLocal<>();
+    private static ThreadLocal<String> sign = new ThreadLocal<>();
 
     public static void setOperator(Operator operator){
         local.set(operator);
     }
+    public static void setSign(String sign){
+        SecurityContext.sign.set(sign);
+    }
 
     public static void clear() {
         local.remove();
+        sign.remove();
+    }
+
+    public static String getSign() {
+        return sign.get();
     }
 
     public static Operator getOperator(){

@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-cn.meshed.cloud.security.config.SecurityConfig,\
-cn.meshed.cloud.security.impl.JwtTokenServiceImpl
